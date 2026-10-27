@@ -5,7 +5,8 @@ compat, metals, calc, history, settings, storage, theme.
 Rhino-dependent modules: rhino_adapter, ui.
 """
 
-__version__ = "0.2.0"
+# Keep equal to the Version in the ScriptEditor project (docs/BUILD.md).
+__version__ = "1.0.0"
 
 # Dependencies first, so reloaded modules see fresh versions of what they use.
 _RELOAD_ORDER = ("compat", "metals", "calc", "history", "theme", "settings", "storage",

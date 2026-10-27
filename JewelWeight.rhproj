@@ -1,0 +1,88 @@
+{
+  "host": {
+    "name": "Rhino3D",
+    "version": "8.32.26160\u002B13001",
+    "os": "windows",
+    "arch": "x64"
+  },
+  "id": "ee22e9dc-5851-4344-9938-4cc0e6a57697",
+  "identity": {
+    "name": "JewelWeight",
+    "version": "1.0",
+    "publisher": {
+      "email": "hanapin08@gmail.com",
+      "name": "Khanapin Tair",
+      "company": "Tair co.",
+      "phone": "\u002B7 708 226 9235",
+      "address": "Astana city",
+      "country": "Kazakhstan",
+      "url": "https://khanapin.com/"
+    },
+    "copyright": "Copyright \u00A9 2026 Khanapin Tair"
+  },
+  "settings": {
+    "buildPath": "build/",
+    "buildTarget": {
+      "host": {
+        "name": "Rhino3D",
+        "version": "8"
+      },
+      "title": "Rhino3D (8.*)",
+      "slug": "rh8"
+    },
+    "publishTarget": {
+      "title": "McNeel Yak Server"
+    }
+  },
+  "codes": [
+    {
+      "id": "080bdae6-5667-436d-9626-1f768987bd5d",
+      "language": {
+        "id": "*.*.python",
+        "version": "3.*.*"
+      },
+      "title": "JewelWeight",
+      "uri": "src/commands/JewelWeight.py",
+      "image": {
+        "light": {
+          "type": "svg",
+          "data": "PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMHB0IDBwdCA0OHB0IDQ4cHQiIGZpbGwtZGFyaz0iI0ZGRiIgc3Ryb2tlLWRhcms9Im5vbmUiPg0KICA8Y2lyY2xlIGZpbGw9Im5vbmUiIGZpbGwtZGFyaz0ibm9uZSIgc3Ryb2tlPSIjQjg5MDFBIiBzdHJva2UtZGFyaz0iI0U2QzQ1MiIgc3Ryb2tlLXdpZHRoPSI1LjIiIHI9IjEyIiBjeD0iMjQiIGN5PSIzMSIgLz4NCiAgPHBvbHlnb24gZmlsbD0iI0NGRUFGRiIgZmlsbC1kYXJrPSIjOEZDQkYwIiBzdHJva2U9IiMyQjVGODYiIHN0cm9rZS1kYXJrPSIjRTRGNEZGIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIHBvaW50cz0iMTkuMDAsNS4wMCAyOS4wMCw1LjAwIDM0LjAwLDEwLjAwIDI0LjAwLDE5LjAwIDE0LjAwLDEwLjAwIDE5LjAwLDUuMDAiIC8\u002BDQogIDxwb2x5bGluZSBmaWxsPSJub25lIiBmaWxsLWRhcms9Im5vbmUiIHN0cm9rZT0iIzJCNUY4NiIgc3Ryb2tlLWRhcms9IiNFNEY0RkYiIHN0cm9rZS13aWR0aD0iMS42IiBwb2ludHM9IjE0LjAwLDEwLjAwIDM0LjAwLDEwLjAwIiAvPg0KICA8cG9seWxpbmUgZmlsbD0ibm9uZSIgZmlsbC1kYXJrPSJub25lIiBzdHJva2U9IiMyQjVGODYiIHN0cm9rZS1kYXJrPSIjRTRGNEZGIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNiIgcG9pbnRzPSIyMC42MCwxMC4wMCAyNC4wMCwxOS4wMCAyNy40MCwxMC4wMCIgLz4NCjwvc3ZnPg=="
+        },
+        "dark": {
+          "type": "svg",
+          "data": "PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMHB0IDBwdCA0OHB0IDQ4cHQiIGZpbGwtZGFyaz0iI0ZGRiIgc3Ryb2tlLWRhcms9Im5vbmUiPg0KICA8Y2lyY2xlIGZpbGw9Im5vbmUiIGZpbGwtZGFyaz0ibm9uZSIgc3Ryb2tlPSIjRTZDNDUyIiBzdHJva2UtZGFyaz0iI0U2QzQ1MiIgc3Ryb2tlLXdpZHRoPSI1LjIiIHI9IjEyIiBjeD0iMjQiIGN5PSIzMSIgLz4NCiAgPHBvbHlnb24gZmlsbD0iIzhGQ0JGMCIgZmlsbC1kYXJrPSIjOEZDQkYwIiBzdHJva2U9IiNFNEY0RkYiIHN0cm9rZS1kYXJrPSIjRTRGNEZGIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIHBvaW50cz0iMTkuMDAsNS4wMCAyOS4wMCw1LjAwIDM0LjAwLDEwLjAwIDI0LjAwLDE5LjAwIDE0LjAwLDEwLjAwIDE5LjAwLDUuMDAiIC8\u002BDQogIDxwb2x5bGluZSBmaWxsPSJub25lIiBmaWxsLWRhcms9Im5vbmUiIHN0cm9rZT0iI0U0RjRGRiIgc3Ryb2tlLWRhcms9IiNFNEY0RkYiIHN0cm9rZS13aWR0aD0iMS42IiBwb2ludHM9IjE0LjAwLDEwLjAwIDM0LjAwLDEwLjAwIiAvPg0KICA8cG9seWxpbmUgZmlsbD0ibm9uZSIgZmlsbC1kYXJrPSJub25lIiBzdHJva2U9IiNFNEY0RkYiIHN0cm9rZS1kYXJrPSIjRTRGNEZGIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNiIgcG9pbnRzPSIyMC42MCwxMC4wMCAyNC4wMCwxOS4wMCAyNy40MCwxMC4wMCIgLz4NCjwvc3ZnPg=="
+        },
+        "rendered": {
+          "light": {
+            "bytes": "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAapJREFUSEvllL9PwlAQx/kTXHnV4I6zIXEQoztOrLIZEqPIj00JkyzCewyiLsoCuzo8NhRM2KyJm5iAk4kLbCQOnLna0nIWaEmIg5/kQvO\u002B37vC3Ts8nn/B2l7hxb9zAtYIxs5a1DcTWEz9BNtAjfpd4Y9kIX/3PDHQQ/McsxLJfqUrj3B68wQb8XPI3aparB8WtU/U0EPzXLG6m/uoNDtwVK5Dqf4GVw8tSJcbUGm\u002BA2rUPxOBaF49Ljf6B5dV2L\u002BQ\u002BIJ\u002BICpU6psZWVgKheLp161UcbCZLA7wGc\u002BozzWS\u002B5alUNSqYIARTiQhnEhpzxiooYfmOUJyJSgF6xrFtIKcdTBGzgTropfmT6TGfQtVwdrDQpwJPBvROROWF7Wt\u002BlQkV0pmcSVGdQPJvRnrl6D6WIzWSM7uqUZBj9EqqtmCQzN77s1QnWL9FY4GjgMzE6YPr8oXt9345/8LEMlZT0\u002BqUY2CHn1ePaqNZe63CO\u002B0daGkYPzXHgjl2mwN67jaA0TbZLNVw4UaWUC9NY6Ga4f2X6Tfc7tAzfFgJ4FXEfv9UxDDm8Ez6vsTvgEFhZo/SGqh0gAAAABJRU5ErkJggg==",
+            "width": 24,
+            "height": 24
+          },
+          "dark": {
+            "bytes": "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAapJREFUSEvllL9PwlAQx/kTXHnV4I6zIXEQoztOrLIZEqPIj00JkyzCewyiLsoCuzo8NhRM2KyJm5iAk4kLbCQOnLna0nIWaEmIg5/kQvO\u002B37vC3Ts8nn/B2l7hxb9zAtYIxs5a1DcTWEz9BNtAjfpd4Y9kIX/3PDHQQ/McsxLJfqUrj3B68wQb8XPI3aparB8WtU/U0EPzXLG6m/uoNDtwVK5Dqf4GVw8tSJcbUGm\u002BA2rUPxOBaF49Ljf6B5dV2L\u002BQ\u002BIJ\u002BICpU6psZWVgKheLp161UcbCZLA7wGc\u002BozzWS\u002B5alUNSqYIARTiQhnEhpzxiooYfmOUJyJSgF6xrFtIKcdTBGzgTropfmT6TGfQtVwdrDQpwJPBvROROWF7Wt\u002BlQkV0pmcSVGdQPJvRnrl6D6WIzWSM7uqUZBj9EqqtmCQzN77s1QnWL9FY4GjgMzE6YPr8oXt9345/8LEMlZT0\u002BqUY2CHn1ePaqNZe63CO\u002B0daGkYPzXHgjl2mwN67jaA0TbZLNVw4UaWUC9NY6Ga4f2X6Tfc7tAzfFgJ4FXEfv9UxDDm8Ez6vsTvgEFhZo/SGqh0gAAAABJRU5ErkJggg==",
+            "width": 24,
+            "height": 24
+          }
+        }
+      }
+    }
+  ],
+  "libraries": [
+    {
+      "type": "uri",
+      "library": {
+        "base": "src/lib/jewelweight/",
+        "language": {
+          "id": "*.*.python",
+          "version": "3.*.*"
+        }
+      }
+    }
+  ],
+  "resources": [
+    {
+      "id": "76ae39fd-71f1-4777-bc7f-177712281127",
+      "uri": "src/shared/README.txt"
+    }
+  ]
+}

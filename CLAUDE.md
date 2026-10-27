@@ -13,6 +13,10 @@
   - Чистый Python, без Rhino: `compat` (версия), `metals` (стандартные плотности), `calc` (проверки, единицы, вес, тексты), `history` (лента, старые сверху), `settings` (переопределения плотностей, свои сплавы), `storage` (JSON в %APPDATA%\JewelWeight, schema_version, миграции, бэкап), `theme` (цвета тёмной темы).
   - С Rhino: `rhino_adapter` (выбор, геометрия → `calc.ObjectCheck`, очистка копии STL), `ui` (окно Eto).
 - В конце docs/SPEC.md есть раздел «Изменения» — он важнее исходного текста.
+- `src/icons/` — SVG-иконки (light/dark) для проекта и команды; `src/shared/README.txt` — README для .yak (UTF-8 с BOM).
+- `installer/` — `install.py`, `uninstall.py`, `README.txt` (для пользователя). `tools/make_package.py` собирает `dist/JewelWeight-<version>.zip`. Это основной способ установки: псевдоним `JewelWeight` → `_-ScriptEditor _Run` на `%APPDATA%\JewelWeight\app`. Релиз: `gh release create v<версия> dist/...zip`.
+- `JewelWeight.rhproj` (корень) — проект ScriptEditor на будущее для .yak: хранит ID плагина, коммитить, не пересоздавать. Сборке .yak нужен Rhino с интернетом; на ПК пользователя его нет. Подробнее — [docs/BUILD.md](docs/BUILD.md).
+- `__version__` в `src/lib/jewelweight/__init__.py` = Version проекта ScriptEditor.
 - `tests/` — unittest для чистых модулей: `python -X utf8 -m unittest discover -s tests -v`.
 
 ## Правила

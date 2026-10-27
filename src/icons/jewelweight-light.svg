@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <!-- JewelWeight icon: gold ring with a diamond. Drawn at 48x48 because the
+       ScriptEditor converter rescales circles but not polyline points.
+       fill-dark / stroke-dark are Rhino's dark-theme colors; without them the
+       converter inserts defaults that hide the strokes in dark mode. -->
+  <circle cx="24" cy="31" r="12" fill="none" fill-dark="none"
+          stroke="#B8901A" stroke-dark="#E6C452" stroke-width="5.2"/>
+  <polyline points="19,5 29,5 34,10 24,19 14,10 19,5"
+            fill="#CFEAFF" fill-dark="#8FCBF0"
+            stroke="#2B5F86" stroke-dark="#E4F4FF" stroke-width="2" stroke-linejoin="round"/>
+  <polyline points="14,10 34,10" fill="none" fill-dark="none"
+            stroke="#2B5F86" stroke-dark="#E4F4FF" stroke-width="1.6"/>
+  <polyline points="20.6,10 24,19 27.4,10" fill="none" fill-dark="none"
+            stroke="#2B5F86" stroke-dark="#E4F4FF" stroke-width="1.6" stroke-linejoin="round"/>
+</svg>
