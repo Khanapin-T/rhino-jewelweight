@@ -19,11 +19,10 @@
 Программа ставится в `%APPDATA%\JewelWeight\app`, команда `JewelWeight` — это псевдоним (alias) Rhino.
 
 ### Кнопка на панели (один раз на каждом компьютере)
-1. Правый щелчок по серой области панели инструментов → **New Toolbar Button…** → **Empty Button** → Next → **Image only** → Finish.
-2. Shift + правый щелчок по новой кнопке → **Button Editor**.
-3. Для левой кнопки мыши: Tooltip — `JewelWeight`, Command — `! JewelWeight`.
-4. Стрелка рядом с квадратом картинки справа вверху → шестерёнка → **File → Import…** → `%APPDATA%\JewelWeight\app\icons\jewelweight-light.svg` (в файле есть цвета и для тёмной темы).
-5. OK, OK.
+1. Правый щелчок по серой области панели инструментов → **New Button...** → откроется **Button Editor**.
+2. Для левой кнопки мыши: Tooltip — `JewelWeight`, Command — `! JewelWeight`.
+3. Стрелка рядом с квадратом картинки справа вверху → шестерёнка → **File → Import…** → `%APPDATA%\JewelWeight\app\icons\jewelweight-light.svg` (в файле есть цвета и для тёмной темы).
+4. OK, OK.
 
 Выпуск новой версии описан в [docs/BUILD.md](docs/BUILD.md).
 

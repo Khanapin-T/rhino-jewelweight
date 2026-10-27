@@ -7,12 +7,11 @@
 4. Введите команду JewelWeight.
 
 КНОПКА НА ПАНЕЛИ (по желанию, один раз на каждом компьютере)
-1. Правый щелчок по серой области любой панели инструментов → New Toolbar Button… → Empty Button → Next → Image only → Finish.
-2. Shift + правый щелчок по новой кнопке → откроется Button Editor.
-3. В разделе левой кнопки мыши: Tooltip — JewelWeight, Command — ! JewelWeight
-4. Стрелка рядом с квадратом картинки справа вверху → шестерёнка → File → Import… →
+1. Правый щелчок по серой области любой панели инструментов → New Button... → откроется Button Editor.
+2. В разделе левой кнопки мыши: Tooltip — JewelWeight, Command — ! JewelWeight
+3. Стрелка рядом с квадратом картинки справа вверху → шестерёнка → File → Import… →
    %APPDATA%\JewelWeight\app\icons\jewelweight-light.svg (в нём есть цвета и для тёмной темы).
-5. OK, OK.
+4. OK, OK.
 
 ОБНОВЛЕНИЕ
 Распакуйте новую версию и снова запустите install.py. Свои сплавы и плотности сохранятся.
