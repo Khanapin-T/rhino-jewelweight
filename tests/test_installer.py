@@ -34,7 +34,8 @@ class PackageTests(unittest.TestCase):
             names = set(archive.namelist())
         for expected in ("README.txt", "install.py", "uninstall.py",
                          "app/commands/JewelWeight.py",
-                         "app/lib/jewelweight/__init__.py", "app/lib/jewelweight/ui.py"):
+                         "app/lib/jewelweight/__init__.py", "app/lib/jewelweight/ui.py",
+                         "app/icons/jewelweight-light.svg", "app/icons/jewelweight-dark.svg"):
             self.assertIn(top + expected, names)
         self.assertFalse([n for n in names if "__pycache__" in n or n.endswith(".pyc")])
 

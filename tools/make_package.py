@@ -27,6 +27,10 @@ def package_files():
     yield os.path.join(installer, "install.py"), "install.py"
     yield os.path.join(installer, "uninstall.py"), "uninstall.py"
     yield os.path.join(ROOT, "src", "commands", "JewelWeight.py"), "app/commands/JewelWeight.py"
+    icons = os.path.join(ROOT, "src", "icons")
+    for name in sorted(os.listdir(icons)):
+        if name.endswith(".svg"):
+            yield os.path.join(icons, name), "app/icons/" + name  # for a toolbar button
     for name in sorted(os.listdir(LIBRARY)):
         if name.endswith(".py"):
             yield os.path.join(LIBRARY, name), "app/lib/jewelweight/" + name
