@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Rhino / ScriptEditor build artifacts
+*.rhp
+*.yak
+*.rui_bak
+*.3dmbak
+bin/
+obj/
+build/
+dist/
+
+# Local tool settings
+.vs/
+.claude/settings.local.json
