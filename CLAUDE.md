@@ -10,8 +10,9 @@
 ## Структура
 - `src/commands/JewelWeight.py` — скрипт-команда: проверка версии Rhino, открытие окна.
 - `src/lib/jewelweight/` — библиотека (пакет с `__init__.py`).
-  - Чистый Python, без Rhino: `compat` (версия), `metals` (плотности), `calc` (проверки, единицы, вес, тексты), `history`.
-  - С Rhino: `rhino_adapter` (выбор, геометрия → `calc.ObjectCheck`), `ui` (окно Eto).
+  - Чистый Python, без Rhino: `compat` (версия), `metals` (стандартные плотности), `calc` (проверки, единицы, вес, тексты), `history` (лента, старые сверху), `settings` (переопределения плотностей, свои сплавы), `storage` (JSON в %APPDATA%\JewelWeight, schema_version, миграции, бэкап), `theme` (цвета тёмной темы).
+  - С Rhino: `rhino_adapter` (выбор, геометрия → `calc.ObjectCheck`, очистка копии STL), `ui` (окно Eto).
+- В конце docs/SPEC.md есть раздел «Изменения» — он важнее исходного текста.
 - `tests/` — unittest для чистых модулей: `python -X utf8 -m unittest discover -s tests -v`.
 
 ## Правила
@@ -30,3 +31,5 @@
 - Методы с out-параметрами возвращают кортеж: `mesh.IsManifold(True)` → `(ok, oriented, boundary)`.
 - Модули кешируются на весь сеанс Rhino; команда вызывает `jewelweight.reload_modules()` перед открытием нового окна.
 - Открытое окно хранится в `scriptcontext.sticky["JewelWeight.window"]`.
+- Кнопки рисуются на `Drawable` (`ui._ColorButton`): у нативных WPF-кнопок при наведении свой цвет. Клик выполняется через `Application.Instance.AsyncInvoke`, после отпускания мыши, иначе захват мыши ломает выбор во viewport.
+- Значение enum с именем `None` из Python недоступно (даже через `getattr`): брать через `System.Enum.Parse(clr.GetClrType(EnumType), "None")` — `ui._enum_member`.

@@ -85,6 +85,13 @@ class EvaluateTests(unittest.TestCase):
         self.assertAlmostEqual(result.volume_mm3, 50.0)
         self.assertEqual(result.inverted_ids, ["a"])
 
+    def test_repaired_mesh_is_counted_and_reported(self):
+        repaired = calc.ObjectCheck("a", calc.KIND_MESH, volume=30.0, repaired_faces=4)
+        result = calc.evaluate([repaired, brep("b", 10.0)])
+        self.assertEqual(result.valid_ids, ["a", "b"])
+        self.assertEqual(result.repaired_ids, ["a"])
+        self.assertIn("1 объект", calc.repaired_message(1))
+
     def test_open_brep_blocks(self):
         result = calc.evaluate([brep("a"), brep("b", volume=None, closed=False)])
         self.assertEqual(result.problem_ids, ["b"])

@@ -36,7 +36,8 @@ _PROBLEM_TEXT = {
 
 _PROBLEM_HINT = {
     PROBLEM_OPEN: "края покажет _ShowEdges; закройте через _Cap или _Join, меш — _FillMeshHoles",
-    PROBLEM_NON_MANIFOLD: "меш исправьте через _MeshRepair, полиповерхность пересоберите",
+    PROBLEM_NON_MANIFOLD: ("у меша отчёт Rhino — в командной строке (F2), исправление — "
+                           "_MeshRepair; полиповерхность пересоберите"),
     PROBLEM_UNSUPPORTED: "нужна полиповерхность, extrusion или меш",
     PROBLEM_NO_VOLUME: "проверьте объект командой _Check",
 }
@@ -68,6 +69,7 @@ class ObjectCheck:
     is_closed: bool = True
     is_manifold: bool = True
     volume: Optional[float] = None  # signed, document units cubed
+    repaired_faces: int = 0  # faces dropped from a cleaned mesh copy
 
 
 @dataclass
@@ -76,6 +78,7 @@ class Evaluation:
     valid_ids: List[Any] = field(default_factory=list)
     deleted_ids: List[Any] = field(default_factory=list)
     inverted_ids: List[Any] = field(default_factory=list)
+    repaired_ids: List[Any] = field(default_factory=list)
     problems: List[tuple] = field(default_factory=list)  # (ObjectCheck, [problem, ...])
     volume_mm3: float = 0.0
 
@@ -127,6 +130,8 @@ def evaluate(checks, mm3_factor=1.0):
         if volume < 0:
             result.inverted_ids.append(check.object_id)
             volume = -volume
+        if check.repaired_faces:
+            result.repaired_ids.append(check.object_id)
         total += volume
         result.valid_ids.append(check.object_id)
     result.volume_mm3 = total * mm3_factor
@@ -195,6 +200,11 @@ def inverted_message(count):
     return ("Внимание: вывернутые нормали (отрицательный объём) — {0}. "
             "Объём взят по модулю; исправьте нормали (_Dir, _UnifyMeshNormals).".format(
                 count_objects(count)))
+
+
+def repaired_message(count):
+    return ("Меш с лишними гранями (дубли или вырожденные треугольники) — {0}. "
+            "Для расчёта они отброшены в копии, модель не изменена.".format(count_objects(count)))
 
 
 def _hint(problem, type_name):

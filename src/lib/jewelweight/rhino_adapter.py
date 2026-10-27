@@ -52,6 +52,50 @@ def _mesh_is_manifold(mesh):
     return bool(result)
 
 
+def _cleaned_copy(mesh):
+    """Copy without duplicate and collapsed faces; returns (copy, faces removed)."""
+    copy = mesh.DuplicateMesh()
+    before = copy.Faces.Count
+    copy.Vertices.CombineIdentical(True, True)
+    copy.Faces.CullDegenerateFaces()
+    copy.Faces.ExtractDuplicateFaces()
+    copy.Compact()
+    return copy, before - copy.Faces.Count
+
+
+def _log_mesh_report(object_id, mesh):
+    """Write Rhino's own mesh check (as in _Check) to the command line."""
+    try:
+        log = Rhino.FileIO.TextLog()
+        mesh.Check(log, rg.MeshCheckParameters.Defaults())
+        report = log.ToString()
+    except Exception as err:
+        report = "не удалось получить отчёт: {0}".format(err)
+    Rhino.RhinoApp.WriteLine("JewelWeight: меш {0} не прошёл проверку manifold. Отчёт Rhino:\n{1}"
+                             .format(object_id, report))
+
+
+def _inspect_mesh(object_id, mesh):
+    closed = mesh.IsClosed
+    manifold = _mesh_is_manifold(mesh)
+    removed = 0
+    if closed and not manifold:
+        # Exported STL often has duplicate or collapsed triangles: they make
+        # edges non-manifold but add nothing to the volume. Check a clean copy.
+        copy, removed = _cleaned_copy(mesh)
+        if copy.IsClosed and _mesh_is_manifold(copy):
+            mesh, manifold = copy, True
+        else:
+            removed = 0
+            _log_mesh_report(object_id, mesh)
+    return calc.ObjectCheck(
+        object_id, calc.KIND_MESH,
+        is_closed=closed,
+        is_manifold=manifold,
+        volume=_volume(mesh) if closed and manifold else None,
+        repaired_faces=removed)
+
+
 def inspect_object(doc, object_id):
     """Collect closedness, manifoldness and signed volume of one object."""
     rh_object = doc.Objects.FindId(object_id)
@@ -74,13 +118,7 @@ def inspect_object(doc, object_id):
             volume=_volume(geometry) if solid else None)
 
     if isinstance(geometry, rg.Mesh):
-        closed = geometry.IsClosed
-        manifold = _mesh_is_manifold(geometry)
-        return calc.ObjectCheck(
-            object_id, calc.KIND_MESH,
-            is_closed=closed,
-            is_manifold=manifold,
-            volume=_volume(geometry) if closed and manifold else None)
+        return _inspect_mesh(object_id, geometry)
 
     type_name = geometry.GetType().Name if geometry is not None else "?"
     return calc.ObjectCheck(object_id, calc.KIND_UNSUPPORTED, type_name=type_name)

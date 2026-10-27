@@ -1,14 +1,15 @@
 """JewelWeight: jewelry weight calculator for Rhino 8.
 
 Pure-Python modules (no Rhino imports, testable outside Rhino):
-compat, metals, calc, history.
+compat, metals, calc, history, settings, storage, theme.
 Rhino-dependent modules: rhino_adapter, ui.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 # Dependencies first, so reloaded modules see fresh versions of what they use.
-_RELOAD_ORDER = ("compat", "metals", "calc", "history", "rhino_adapter", "ui")
+_RELOAD_ORDER = ("compat", "metals", "calc", "history", "theme", "settings", "storage",
+                 "rhino_adapter", "ui")
 
 
 def reload_modules():

@@ -29,12 +29,16 @@ class MetalsTests(unittest.TestCase):
         self.assertEqual(metals.get_metal("au750_white").label, "750 белое")
 
 
+def texts(output_history):
+    return [entry["text"] for entry in output_history.entries]
+
+
 class HistoryTests(unittest.TestCase):
-    def test_newest_block_on_top_in_reading_order(self):
+    def test_newest_block_at_bottom_in_reading_order(self):
         h = history.History()
         h.add_block([(history.KIND_RESULT, "first")])
         h.add_block([(history.KIND_RESULT, "second"), (history.KIND_WARNING, "note")])
-        self.assertEqual(h.render(), "second\nnote\nfirst")
+        self.assertEqual(texts(h), ["first", "second", "note"])
 
     def test_last_result_skips_messages(self):
         h = history.History()
@@ -42,14 +46,24 @@ class HistoryTests(unittest.TestCase):
         h.add_block([(history.KIND_ERROR, "Расчёт невозможен")])
         self.assertEqual(h.last_result(), "585 красное: 4.37 г (2 объекта)")
 
-    def test_limit_and_clear(self):
+    def test_limit_keeps_newest_and_clear(self):
         h = history.History(limit=3)
         for i in range(5):
             h.add_block([(history.KIND_RESULT, str(i))])
-        self.assertEqual(h.render(), "4\n3\n2")
+        self.assertEqual(texts(h), ["2", "3", "4"])
         h.clear()
         self.assertIsNone(h.last_result())
-        self.assertEqual(h.render(), "")
+        self.assertEqual(h.entries, [])
+
+    def test_from_list_skips_malformed(self):
+        items = [{"kind": "result", "text": "ok"}, {"kind": "bogus", "text": "x"},
+                 {"kind": "info"}, "junk", {"kind": "error", "text": 5}]
+        self.assertEqual(texts(history.History.from_list(items)), ["ok"])
+
+    def test_default_limit_is_50(self):
+        h = history.History.from_list([{"kind": "info", "text": str(i)} for i in range(60)])
+        self.assertEqual(len(h.entries), 50)
+        self.assertEqual(texts(h)[0], "10")
 
 
 if __name__ == "__main__":
